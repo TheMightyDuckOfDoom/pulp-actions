@@ -41,7 +41,7 @@ runs:
     - name: Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
+        python-version: '3.11.6'
     - name: Install Python requirements
       shell: bash
       run: pip install hjson mako pyyaml tabulate yapf
