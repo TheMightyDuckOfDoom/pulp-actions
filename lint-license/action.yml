@@ -44,11 +44,6 @@ runs:
         mkdir -p ${{ runner.temp }}/pulp-actions/lint-license
         cd ${{ runner.temp }}/pulp-actions/lint-license
         git clone https://github.com/lowRISC/misc-linters.git
-        cd misc-linters
-        git checkout ${{ inputs.linters_revision }}
-        git config user.email "colluca@iis.ee.ethz.ch"
-        git config user.name "Luca Colagrande"
-        ${{ github.action_path }}/apply_patches.py ${{ runner.temp }}/pulp-actions/lint-license/misc-linters ${{ inputs.patches }} --patch-dir=${{ github.action_path }}/patches
     - name: Generate config
       shell: bash
       run: ${{ github.action_path }}/gen_config.py "${{ runner.temp }}/pulp-actions/lint-license/cfg.hjson" ${{ inputs.match_regex }} "${{ inputs.license }}" "${{ inputs.exclude_paths }}"
